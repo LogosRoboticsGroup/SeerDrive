@@ -1,7 +1,7 @@
 # Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution
-### [[Paper]](https://arxiv.org/abs/xxx)
+### [[Paper]](https://arxiv.org/abs/2510.11092)
 
-> [**Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution**](https://arxiv.org/abs/xxx)            
+> [**Future-Aware End-to-End Driving: Bidirectional Modeling of Trajectory Planning and Scene Evolution**](https://arxiv.org/abs/2510.11092)            
 > [Bozhou Zhang](https://zbozhou.github.io/), [Nan Song](https://scholar.google.com/citations?hl=zh-CN&user=wLZVtjEAAAAJ), [Jingyu Li](https://github.com/Whale-ice), [Xiatian Zhu](https://scholar.google.com/citations?user=ZbA-z1cAAAAJ&hl=en), [Jiankang Deng](https://scholar.google.com/citations?user=Z_UoQFsAAAAJ&hl=zh-CN), [Li Zhang](https://lzrobots.github.io)   
 > **NeurIPS 2025**
 
