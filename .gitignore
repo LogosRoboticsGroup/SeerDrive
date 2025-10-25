@@ -1,0 +1,27 @@
+# python
+*.pyc
+**/__pycache__/
+.pytest_cache/*
+.pydevproject
+
+# IDE
+.vscode/*
+
+# Pip
+*.egg-info
+
+# files
+*.log
+*.pkl
+*.pcd
+
+nuplan/
+exp/
+download/
+dataset/
+ckpts
+
+vis/
+extra_data/
+
+trans.sh
