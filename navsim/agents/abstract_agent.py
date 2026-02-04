@@ -80,6 +80,30 @@ class AbstractAgent(torch.nn.Module, ABC):
         # extract trajectory
         return Trajectory(poses)
     
+    def compute_trajectory_with_bev(self, agent_input: AgentInput) -> Trajectory:
+        """
+        Computes the ego vehicle trajectory.
+        :param current_input: Dataclass with agent inputs.
+        :return: Trajectory representing the predicted ego's position in future
+        """
+        self.eval()
+        features : Dict[str, torch.Tensor] = {}
+        # build features
+        for builder in self.get_feature_builders():
+            features.update(builder.compute_features(agent_input))
+
+        # add batch dimension
+        features = {k: v.unsqueeze(0) for k, v in features.items()}
+
+        # forward pass
+        with torch.no_grad():
+            predictions = self.forward(features)
+            poses = predictions["trajectory"].squeeze(0).numpy()
+            fut_bev = predictions["fut_bev_semantic_map"].squeeze(0).numpy()
+
+        # extract trajectory
+        return Trajectory(poses), fut_bev
+    
     def compute_trajectory_gpu(self, agent_input: AgentInput) -> Trajectory:
         """
         Computes the ego vehicle trajectory.

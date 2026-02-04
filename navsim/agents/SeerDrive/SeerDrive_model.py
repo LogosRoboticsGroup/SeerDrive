@@ -821,11 +821,17 @@ class SeerDrive(nn.Module):
         trajectory_anchors = self.trajectory_anchors + trajectory_offset_refine_refine.squeeze(0)
         poses = self.select_best_trajectory(final_rewards, trajectory_anchors, batch_size)
 
+        fut_bev_semantic_map = self._process_future_map(
+            fut_flatten_bev_feature,
+            batch_size
+        )
+
         results = {
             "trajectory": poses,  # torch.Size([B, 8, 3])
             "all_trajectory": trajectory_anchors,  # torch.Size([256, 8, 3])
             "final_rewards": final_rewards,  # torch.Size([B, 256])
             "im_rewards": im_rewards_softmax,  # torch.Size([B, 256])
+            "fut_bev_semantic_map": fut_bev_semantic_map,  # torch.Size([B, 8, 128, 256])
             }
         return results
 
